@@ -3,6 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="Figures">
+            <Setter Property="Control.FontSize" Value="100"/>
+            <Setter Property="Control.FontWeight" Value="Bold"/>
+        </Style>
     </Application.Resources>
 </Application>

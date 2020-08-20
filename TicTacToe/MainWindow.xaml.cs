@@ -21,44 +21,36 @@ namespace TicTacToe
     public partial class MainWindow : Window
     {
         bool player = true;
-        List<string> game = new List<string>(){"","","","","","","","",""};
-
+        string[,] board = new string[3, 3] { { "", "", "" }, { "", "", "" }, { "", "", "" } };
         public MainWindow()
         {
             InitializeComponent();
-
         }
-
-        void Reset()
+        private void Reset()
         {
-            game = new List<string>() { "", "", "", "", "", "", "", "", "" };
+            board = new string[3, 3] { { "", "", "" }, { "", "", "" }, { "", "", "" } };
 
-            foreach (UIElement ele in board.Children)
+            foreach (UIElement ele in PlayBoard.Children)
             {
                 if (ele is Button)
+                {
                     (ele as Button).Content = null;
+                }
             }
         }
-
         private void ButtonClick(object sender, RoutedEventArgs e)
         {
-            Button btn = (sender as Button);
-            string move = "";
+            var currentButton = sender as Button;
 
-            if (btn.Content == null)
+            if (currentButton.Content == null)
             {
-                move = getMove();
-                (sender as Button).Content = move;
-
-                game[int.Parse(btn.Tag.ToString())] = move;
-
+                var move = GetMove();
+                currentButton.Content = move;
+                board[Grid.GetRow(currentButton), Grid.GetColumn(currentButton)] = move;
             }
-
             CheckWin();
-                
         }
-
-        private string getMove()
+        private string GetMove()
         {
             string ret = "";
 
@@ -71,36 +63,49 @@ namespace TicTacToe
 
             return ret;
         }
-
         private void CheckWin()
         {
-            if (game[0] != "" && (game[0] == game[1] && game[1] == game[2]))
-                DisplayMessage();
-            else if (game[3] != "" && (game[3] == game[4] && game[4] == game[5]))
-                DisplayMessage();
-            else if (game[6] != "" && (game[6] == game[7] && game[7] == game[8]))
-                DisplayMessage();
-            else if (game[0] != "" && (game[0] == game[3] && game[3] == game[6]))
-                DisplayMessage();
-            else if (game[1] != "" && (game[1] == game[4] && game[4] == game[7]))
-                DisplayMessage();
-            else if (game[2] != "" && (game[2] == game[5] && game[5] == game[8]))
-                DisplayMessage();
-            else if (game[0] != "" && (game[0] == game[4] && game[4] == game[8]))
-                DisplayMessage();
-            else if (game[2] != "" && (game[2] == game[4] && game[4] == game[6]))
-                DisplayMessage();
-            else
-            {           
-
-                if (!game.Contains(""))
+            //Vertical Check
+            for (int i = 0; i < 3; i++)
+            {
+                if ((board[0, i] != "" && board[1, i] != "" && board[2, i] != "") && (board[0, i] == board[1, i] && board[0, i] == board[2, i] && board[1, i] == board[2, i]))
                 {
-                    DisplayTieMessage();
-                    return;
+                    DisplayMessage();
                 }
             }
+            //Horizontal Check
+            for (int i = 0; i < 3; i++)
+            {
+                if ((board[i, 0] != "" && board[i, 1] != "" && board[i, 2] != "") && (board[i, 0] == board[i, 1] && board[i, 0] == board[i, 2] && board[i, 1] == board[i, 2]))
+                {
+                    DisplayMessage();
+                }
+            }
+            //Diagonal 1 Check
+            if ((board[0, 0] != "" && board[1, 1] != "" && board[2, 2] != "") && (board[0, 0] == board[1, 1] && board[0, 0] == board[2, 2] && board[1, 1] == board[2, 2]))
+            {
+                DisplayMessage();
+            }
+            //Diagonal 2 Check
+            else if ((board[0, 2] != "" && board[1, 1] != "" && board[2, 0] != "") && (board[0, 2] == board[1, 1] && board[0, 2] == board[2, 0] && board[1, 1] == board[2, 0]))
+            {
+                DisplayMessage();
+            }
+            //looks ugly
+            else
+            {
+                var c = 0;
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int j = 0; j < 3; j++)
+                    {
+                        if (board[i, j] != "") c++;
+                        else return;
+                    }
+                }
+                if (c == 9) DisplayTieMessage();
+            }
         }
-
         private void DisplayMessage()
         {
             if (MessageBox.Show((player ? "O" : "X") + " wins!\n\nPlay again?", "You win!", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
@@ -108,10 +113,9 @@ namespace TicTacToe
             else
                 Close();
         }
-
         private void DisplayTieMessage()
         {
-            if (MessageBox.Show("Tie game!\n\nPlay again?", "Aww..", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Tie board!\n\nPlay again?", "Aww..", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 Reset();
             else
                 Close();
