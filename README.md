@@ -1,4 +1,7 @@
 # TicTacToe
 Simple Tic Tac Toe game
 
-Made during the internet outage of 2015!
+in plan:  
+1.Update from .Net Framework to .Net core   
+2.Online   
+
