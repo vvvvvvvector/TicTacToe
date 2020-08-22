@@ -45,7 +45,7 @@ namespace TicTacToe
             if (currentButton.Content == null)
             {
                 var move = GetMove();
-                TurnBox.Text = move == "X"? $"next move O": $"next move X";
+                TurnBox.Text = move == "X" ? $"Next move O" : $"Next move X";
                 currentButton.Content = move;
                 board[Grid.GetRow(currentButton), Grid.GetColumn(currentButton)] = move;
             }
@@ -53,7 +53,7 @@ namespace TicTacToe
         }
         private string GetMove()
         {
-            string ret = "";
+            var ret = "";
 
             if (player)
                 ret = "X";
@@ -112,14 +112,16 @@ namespace TicTacToe
             if (MessageBox.Show((player ? "O" : "X") + " wins!\n\nPlay again?", "You win!", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 Reset();
             else
-                Close();
+                Application.Current.Shutdown();
+            //Close();
         }
         private void DisplayTieMessage()
         {
             if (MessageBox.Show("Tie board!\n\nPlay again?", "Aww..", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 Reset();
             else
-                Close();
+                Application.Current.Shutdown();
+            //Close();
         }
     }
 }

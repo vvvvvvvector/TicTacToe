@@ -14,7 +14,6 @@ C:\Users\tjaques\Documents\Visual Studio 2012\Projects\TicTacToe\TicTacToe\obj\D
 D:\projects\TicTacToe\TicTacToe\bin\Debug\TicTacToe.exe.config
 D:\projects\TicTacToe\TicTacToe\bin\Debug\TicTacToe.exe
 D:\projects\TicTacToe\TicTacToe\bin\Debug\TicTacToe.pdb
-D:\projects\TicTacToe\TicTacToe\obj\Debug\TicTacToe.csprojAssemblyReference.cache
 D:\projects\TicTacToe\TicTacToe\obj\Debug\MainWindow.baml
 D:\projects\TicTacToe\TicTacToe\obj\Debug\MainWindow.g.cs
 D:\projects\TicTacToe\TicTacToe\obj\Debug\App.g.cs
@@ -26,3 +25,7 @@ D:\projects\TicTacToe\TicTacToe\obj\Debug\TicTacToe.csproj.CoreCompileInputs.cac
 D:\projects\TicTacToe\TicTacToe\obj\Debug\TicTacToe.exe
 D:\projects\TicTacToe\TicTacToe\obj\Debug\TicTacToe.pdb
 D:\projects\TicTacToe\TicTacToe\obj\Debug\App.baml
+D:\projects\TicTacToe\TicTacToe\obj\Debug\TicTacToe_MarkupCompile.lref
+D:\projects\TicTacToe\TicTacToe\obj\Debug\TicTacToe.csprojAssemblyReference.cache
+D:\projects\TicTacToe\TicTacToe\obj\Debug\StartPage.g.cs
+D:\projects\TicTacToe\TicTacToe\obj\Debug\StartPage.baml
