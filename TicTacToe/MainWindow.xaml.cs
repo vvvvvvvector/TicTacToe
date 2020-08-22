@@ -45,6 +45,7 @@ namespace TicTacToe
             if (currentButton.Content == null)
             {
                 var move = GetMove();
+                TurnBox.Text = move == "X"? $"next move O": $"next move X";
                 currentButton.Content = move;
                 board[Grid.GetRow(currentButton), Grid.GetColumn(currentButton)] = move;
             }
