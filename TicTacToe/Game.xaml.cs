@@ -35,6 +35,7 @@ namespace TicTacToe
                 if (ele is Button)
                 {
                     (ele as Button).Content = null;
+                    (ele as Button).IsEnabled = true;
                 }
             }
         }
@@ -47,6 +48,7 @@ namespace TicTacToe
                 var move = GetMove();
                 TurnBox.Text = move == "X" ? $"Next move O" : $"Next move X";
                 currentButton.Content = move;
+                currentButton.IsEnabled = false;
                 board[Grid.GetRow(currentButton), Grid.GetColumn(currentButton)] = move;
             }
             CheckWin();
