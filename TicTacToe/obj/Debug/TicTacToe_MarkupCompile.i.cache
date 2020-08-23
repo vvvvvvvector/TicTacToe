@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\projects\TicTacToe\TicTacToe\App.xaml
-2-593694634
+3-1470986375
 
-7-2079831225
+8-1511536222
 12-1401562060
-MainWindow.xaml;StartPage.xaml;
+Game.xaml;StartOnline.xaml;StartPage.xaml;
 
 False
 

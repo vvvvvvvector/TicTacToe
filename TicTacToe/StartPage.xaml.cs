@@ -35,7 +35,9 @@ namespace TicTacToe
 
         private void StartOnlineGame(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("COMING SOON");
+            var startOnlineGame = new StartOnline();
+            this.Visibility = Visibility.Hidden;
+            startOnlineGame.Show();
         }
     }
 }
