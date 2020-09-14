@@ -1,6 +1,6 @@
 # TicTacToe
-Simple Tic Tac Toe game
+TicTacToe Game
 
-in plan:  
-1.Online   
+In plan  
+* Online 1vs1   
 
